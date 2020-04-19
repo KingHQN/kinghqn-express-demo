@@ -1,0 +1,23 @@
+extends ../layouts/common.pug
+
+block content
+	#users.pt-5
+		.container
+			h1 Create New User
+
+			if errors
+				each error in errors
+					.alert.alert-danger= error
+
+			form(action="/users/create", method="POST", enctype="multipart/form-data")
+				.form-group
+					label(class="mb-2", for="name") Name
+					input#name(type="text", name="name", class="form-control mb-2", value=values ? values.name : "")
+				.form-group
+					label(class="mb-2", for="phone") Phone
+					input#phone(type="text", name="phone", class="form-control mb-2", value=values ? values.phone : "")
+				.form-group
+					label(class="mb-2", for="avatar") Avatar
+					input#avatar.form-control-file(type="file", name="avatar", class="mb-2")
+
+				button(class="btn btn-danger") Create

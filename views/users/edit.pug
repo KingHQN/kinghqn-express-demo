@@ -1,0 +1,21 @@
+extends ../layouts/common.pug
+
+block content
+	#users.pt-5
+		.container
+			h1 Edit User
+
+			form(action="/users/edit/" + user.id, method="POST", enctype="multipart/form-data")
+				.form-group
+					label(class="mb-2", for="name") Name
+					input#name(type="text", name="name", value=user.name, class="form-control")
+
+				.form-group
+					label(class="mb-2 mt-2", for="phone") Phone
+					input#phone(type="text", name="phone", value=user.phone, class="form-control mb-2")
+
+				.form-group
+					label(class="mb-2", for="avatar") Avatar
+					input#avatar.form-control-file(type="file", name="avatar", class="mb-2")
+
+				button(class="btn btn-danger") Edit

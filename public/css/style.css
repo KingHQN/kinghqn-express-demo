@@ -1,0 +1,107 @@
+body {
+	overflow-x: hidden;
+	font-family: 'Roboto Slab',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
+
+li {
+	list-style: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.offset:before {
+	display: block;
+	content: "";
+	margin-top: -3rem;
+}
+
+.btn {
+	font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+	font-weight: 700;
+}
+
+.btn-primary {
+	background: #fed136;
+	border-color: #fed136;
+	text-transform: uppercase;
+	padding: 20px 40px;
+	font-size: 18px;
+}
+.btn-primary:hover {
+	background: #fec810!important;
+	border-color: #fec810!important;
+}
+
+/* MainNav */
+#mainNav {
+	background: #563D7C;
+	transition: padding-top .3s, padding-bottom .3s, 750ms ease;
+}
+#mainNav.scrolled {
+	background: #100E17;
+	padding-top: 0;
+    padding-bottom: 0;
+}
+#mainNav .navbar-brand {
+	color: #fed136;
+	font-family: 'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+	font-size: 1.75em;
+	transition: all .3s;
+}
+#mainNav .nav-link {
+	text-transform: uppercase;
+	font-size: 17px;
+	font-weight: 400;
+	color: #FFF;
+	padding: 1.1em 1em!important;
+}
+
+#mainNav .nav-item:hover .nav-link,
+#mainNav .nav-link.active {
+	color: #fed136;
+}
+#mainNav .nav-item:hover .nav-link.cart {
+	color: #FFF;
+}
+#mainNav .nav-item .nav-link.cart.disabled {
+	color: rgba(0, 0, 0, .3);
+}
+.mega-menu {
+    padding: 20px 10px;
+    width: 1000px;
+    overflow: hidden;
+}
+.mega-menu h5 {
+	color: #fed136;
+}
+.dropdown a {
+	color: #FFF;
+}
+.dropdown-menu {
+	background-color: #100E17;
+}
+
+/* Cart */
+.nav-link.cart {
+	position: relative;
+}
+.nav-link.cart i {
+	font-size: 21px;
+}
+.nav-link.cart .circle {
+	position: absolute;
+	width: 22px;
+	height: 22px;
+    top: 10px;
+    background-color: #fed136;
+    right: 6px;
+    border-radius: 50%;
+    text-align: center;
+}
+.nav-link.cart span.num {
+    color: black;
+    margin: 0 auto;
+    font-size: 14px;
+}

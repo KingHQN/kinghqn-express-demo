@@ -1,0 +1,112 @@
+extends ../layouts/common.pug
+
+block content
+	#products.offset.pt-5
+		.container
+			h1 Products
+
+			form(action="/products/search" method="GET")
+				.form-group.align-item-right
+					input(type="text", name="q", id="searchItem", value=values ? values : "", class="mr-2")
+					button(class="btn btn-danger") Search
+			.row
+				.col-sm-2(style="max-width: 800px; margin: 0 auto;")
+					nav(aria-label='Page navigation example')
+						if totalPages > 0
+							ul.pagination
+								if currentPage == 1
+									li.page-item.disabled
+										a.page-link(href='')= '<<'
+									li.page-item.disabled
+										a.page-link(href='')= '<'
+								else
+									li.page-item
+										a.page-link(href='/products')= '<<'
+									li.page-item
+										a.page-link(href='?page=' + (Number(currentPage) - 1))= '<'
+								- var i = (Number(currentPage) > 3 ? Number(currentPage) - 2 : 1)
+								if i !== 1
+									li.page-item.disabled
+										a.page-link(href='')= '...'
+								- for (; i <= (Number(currentPage) + 2) && i <= totalPages; i++)
+									if i == currentPage
+										li.page-item.active
+											a.page-link(href='?page=' + i, onclick="return false")= i
+									else
+										li.page-item
+											a.page-link(href='?page=' + i)= i
+									if (i == Number(currentPage) + 2 && i < totalPages)
+										li.page-item.disabled
+											a.page-link(href='')= '...'
+								if (currentPage == totalPages)
+									li.page-item.disabled
+										a.page-link(href='')= '>'
+									li.page-item.disabled
+										a.page-link(href='')= '>>'
+								else
+									li.page-item
+										a.page-link(href='?page=' + (Number(currentPage) + 1))= '>'
+									li.page-item
+										a.page-link(href='?page=' + totalPages)= '>>'
+			.row.pagination-section
+				each product in products
+					.col-sm-3.mb-4
+						.card
+							img.card-img-top(src=product.image)
+							.card-body
+								h5.card-title(style='height: 40px;')= product.name
+								p.card-text(style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;')= product.description
+								a.btn.btn-danger.btn-add-cart(href='/cart/add/' + product.id) Add to cart
+			.row
+				.col-sm-2(style="max-width: 800px; margin: 0 auto;")
+					nav(aria-label='Page navigation example')
+						if totalPages > 0
+							ul.pagination
+								if currentPage == 1
+									li.page-item.disabled
+										a.page-link(href='')= '<<'
+									li.page-item.disabled
+										a.page-link(href='')= '<'
+								else
+									li.page-item
+										a.page-link(href='?page=1')= '<<'
+									li.page-item
+										a.page-link(href='?page=' + (Number(currentPage) - 1))= '<'
+								- var i = (Number(currentPage) > 3 ? Number(currentPage) - 2 : 1)
+								if i !== 1
+									li.page-item.disabled
+										a.page-link(href='')= '...'
+								- for (; i <= (Number(currentPage) + 2) && i <= totalPages; i++)
+									if i == currentPage
+										li.page-item.active
+											a.page-link(href='?page=' + i, onclick="return false")= i
+									else
+										li.page-item
+											a.page-link(href='?page=' + i)= i
+									if (i == Number(currentPage) + 2 && i < totalPages)
+										li.page-item.disabled
+											a.page-link(href='')= '...'
+								if (currentPage == totalPages)
+									li.page-item.disabled
+										a.page-link(href='')= '>'
+									li.page-item.disabled
+										a.page-link(href='')= '>>'
+								else
+									li.page-item
+										a.page-link(href='?page=' + (Number(currentPage) + 1))= '>'
+									li.page-item
+										a.page-link(href='?page=' + totalPages)= '>>'
+
+
+			form(method="POST")
+				.form-group
+					label(class="mb-2", for="name") Name
+					input#name(type="text", name="name", class="form-control mb-2")
+				.form-group
+					label(class="mb-2", for="description") Description
+					input#description(type="text", name="description", class="form-control mb-2")
+				.form-group
+					label(class="mb-2", for="image") Image
+					input#image.form-control-file(type="file", name="image", class="mb-2")
+
+				button(class="btn btn-danger") Transfer

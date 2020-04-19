@@ -1,0 +1,54 @@
+html
+	head
+		// Required meta tags
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title My Site
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css", integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh", crossorigin="anonymous")
+		link(rel="stylesheet", href="https://bootsnipp.com/dist/bootsnipp.min.css?ver=70eabcd8097cd299e1ba8efe436992b7")
+		link(rel="stylesheet", href="/css/style.css")
+		link(href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap", rel="stylesheet")
+	body(data-spy="scroll", data-target="#navbarSupportedContent")
+		block nav
+			div(id="home", class="offset")
+				nav(class="navbar navbar-expand-lg navbar-dark", id="mainNav")
+
+					a(class="navbar-brand", href="#") Start Bootstrap
+					button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+						span.navbar-toggler-icon
+					#navbarSupportedContent.collapse.navbar-collapse
+						ul.nav.navbar-nav.mr-auto
+							li.nav-item
+								a.nav-link(href='/') Home
+							li.nav-item
+								a.nav-link(href='/users') Users
+							li.nav-item
+								a.nav-link(href='/products') Products
+							li.nav-item
+								a.nav-link.cart(href='/cart')
+									i(class="fas fa-shopping-cart")
+									.circle
+										span.num 0
+							li.nav-item
+								a.nav-link(href='/transfer/create') Transfer
+					if userLg
+						p.mt-3(style="color: #FFF;")= userLg.name
+						a(class="btn btn-danger ml-2", style="color: #FFF;", href="/auth/logout") Logout
+
+		block content
+
+		// jQuery first, then Popper.js, then Bootstrap JS
+		script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js', integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n', crossorigin='anonymous')
+		script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6', crossorigin='anonymous')
+		// Bootstrap core JS
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js')
+		// Third party plugin JS
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js')
+		// Optional JavaScript
+		script(src='https://use.fontawesome.com/releases/v5.13.0/js/all.js', data-auto-replace-svg='nest')
+		script(type="text/javascript", src="/js/main.js")
+
+		block script

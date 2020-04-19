@@ -1,0 +1,28 @@
+extends ../layouts/common.pug
+
+block content
+	#users.offset.pt-5
+		.container
+			h1 Users
+
+			a(class="btn btn-danger mb-2" href="/users/create") Create
+
+			form(action="/users/search" method="GET")
+				input(type="text", name="q", id="searchItem", value=values ? values : "", class="mr-2")
+				button(class="btn btn-danger") Search
+			table.table
+				tr
+					th(style="text-align: center; vertical-align: middle;") Avatar
+					th(style="text-align: center; vertical-align: middle;") Name
+					th(style="text-align: center; vertical-align: middle;") Phone
+					th(style="text-align: center; vertical-align: middle;") Action
+				each user in users
+					tr
+						td(style="text-align: center; vertical-align: middle;")
+							img(src=user.avatar, style="width: 50;")
+						td(style="text-align: center; vertical-align: middle;")= user.name
+						td(style="text-align: center; vertical-align: middle;")= user.phone
+						td(style="text-align: center; vertical-align: middle;")
+							a.btn.btn-outline-danger(class="mr-2", href='/users/view/' + user.id) View
+							a.btn.btn-outline-danger(class="mr-2", href='/users/edit/' + user.id) Edit
+							a.btn.btn-outline-danger(class="mr-2", href='/users/delete/' + user.id) Delete
